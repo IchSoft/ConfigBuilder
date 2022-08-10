@@ -1,0 +1,39 @@
+* text=auto
+*.css text
+*.hbs text eol=crlf
+*.hbs.cs text eol=crlf
+
+*.doc  diff=astextplain
+*.DOC  diff=astextplain
+*.docx diff=astextplain
+*.DOCX diff=astextplain
+*.dot  diff=astextplain
+*.DOT  diff=astextplain
+*.pdf  diff=astextplain
+*.PDF  diff=astextplain
+*.rtf  diff=astextplain
+*.RTF  diff=astextplain
+
+*.gif binary
+*.msi binary
+*.exe binary
+*.bin binary
+*.dll binary
+*.eot binary
+*.ttf binary
+*.ico binary
+*.jpg binary
+*.png binary
+*.sgf binary
+*.tif binary
+
+*.es6 text eol=lf
+
+*.cs  diff=csharp 
+
+*.sln text eol=crlf
+
+*.ccproj text=auto
+*.config text=auto
+*.cshtml text=auto
+*.xslt text=auto

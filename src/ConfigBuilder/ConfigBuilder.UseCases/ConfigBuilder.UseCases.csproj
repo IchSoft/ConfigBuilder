@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ConfigBuilder.Entities\ConfigBuilder.Entities.csproj" />
+      <ProjectReference Include="..\ConfigBuilder.Infrastructure\ConfigBuilder.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
