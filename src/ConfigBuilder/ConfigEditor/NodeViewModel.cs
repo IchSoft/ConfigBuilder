@@ -7,12 +7,18 @@ namespace ConfigEditor;
 
 public class NodeViewModel : AbstractViewModel
 {
-    public string Name { get; set; }
-
-    public ObservableCollection<NodeViewModel> ChildNodes { get; set; }
+    public string LocalName { get; }
+    public ObservableCollection<NodeViewModel> ChildNodes { get; set; } = new ObservableCollection<NodeViewModel>();
     
     // public NodeViewModel Parent { get; set; }
     
     public ObservableCollection<NodeAttributeViewModel> Attributes { get; set; }
+    
+    public string Text { get; set; }
+
+    public NodeViewModel(string localName)
+    {
+	    LocalName = localName;
+    }
 
 }

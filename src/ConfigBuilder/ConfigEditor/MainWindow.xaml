@@ -9,29 +9,44 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
   <DockPanel>
-    <DockPanel Dock="Left">
+          <ToolBarTray IsLocked="True" DockPanel.Dock="Top">
+              <ToolBar Band="1" BandIndex="1">
+                  <Button x:Name="DeleteAttribute" Command="local:MainWindow.OpenConfigFileCommand" Focusable="False" 
+                          ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self},Path=Command}"
+                          ToolTipService.ShowOnDisabled="True">
+                      <Image Source="open.png" Width="16" RenderOptions.BitmapScalingMode="NearestNeighbor">
+                          <Image.Style>
+                              <Style TargetType="Image">
+                                  <Setter Property="Width" Value="16"/>
+                                  <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+                                  <Style.Triggers>
+                                      <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ButtonBase,AncestorLevel=1},Path=IsEnabled}" Value="False">
+                                          <Setter Property="Opacity" Value="0.25"></Setter>
+                                      </DataTrigger>
+                                  </Style.Triggers>
+                              </Style>
+                          </Image.Style>
+                      </Image>
+                  </Button>                  
+              </ToolBar>
+          </ToolBarTray>
+
+      <DockPanel Dock="Left">
         <DockPanel>
-            <!-- <ListView DockPanel.Dock="Top" ItemsSource="{Binding Path=}"> -->
-            <!--      -->
-            <!-- </ListView> -->
-            <ListView>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Date"/>
-                        <GridViewColumn Header="Day of Week"
-                                        DisplayMemberBinding="{Binding DayOfWeek}"/>
-                        <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Year}"/>
-                    </GridView>
-                </ListView.View>
-                <system:DateTime>1/1/2012</system:DateTime>
-                <system:DateTime>1/2/2012</system:DateTime>
-                <system:DateTime>1/3/2012</system:DateTime>
-            </ListView>
-            <ListView DockPanel.Dock="Bottom"></ListView>
+<TreeView Name="TreeView" ItemsSource="{Binding ChildNodes}">
+    <TreeView.ItemTemplate>
+        <HierarchicalDataTemplate ItemsSource="{Binding ChildNodes }" DataType="{x:Type local:NodeViewModel}" >
+            <TextBlock Text="{Binding LocalName}" />
+        </HierarchicalDataTemplate>
+    </TreeView.ItemTemplate>
+</TreeView>
         </DockPanel>
     </DockPanel>
     <DockPanel Dock="Right">
-        
+        <!-- <TextBlock Margin="10,0,0,0"  -->
+        <!--            Text="{Binding ElementName=TreeView,  -->
+        <!--                   Path=SelectedValuePath}" -->
+        <!--            Foreground="Blue"/> -->
     </DockPanel>
 </DockPanel>
     </Grid>

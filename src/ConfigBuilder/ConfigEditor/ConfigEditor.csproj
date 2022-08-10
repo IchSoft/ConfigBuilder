@@ -7,4 +7,25 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="Ressources\Config_full.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="res.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>res.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="res.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>res.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
