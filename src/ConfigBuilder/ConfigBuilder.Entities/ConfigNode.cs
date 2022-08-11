@@ -5,14 +5,30 @@
 /// </summary>
 public class ConfigNode
 {
+	/// <summary>
+	/// Evtl. so, ähnlich wie beim xslt, um Nodes bearbeiten zu können. Die ID ist flüchtig. Bzw. anhand des Pfades (?)
+	/// </summary>
+	// public string SessionNodeId { get; }
 	public string LocalName { get; }
+	
+	// public ConfigNode Parent { get; }
 
+	/// <summary>
+	/// Noch schlecht mit new List...
+	/// </summary>
 	public List<ConfigNode> ChildNodes { get; private set; } = new List<ConfigNode>();
 
 	public List<ConfigAttribute> Attributes { get; private set; } = new List<ConfigAttribute>();
     
 	public string Text { get; private set; }
 
+	// public ConfigNode(string sessionNodeId, string localName, ConfigNode parent)
+	// {
+	// 	SessionNodeId = sessionNodeId;
+	// 	LocalName = localName;
+	// 	Parent = parent;
+	// }
+	
 	public ConfigNode(string localName)
 	{
 		LocalName = localName;
