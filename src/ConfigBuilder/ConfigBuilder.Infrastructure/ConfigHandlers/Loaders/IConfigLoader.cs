@@ -4,5 +4,7 @@ namespace ConfigBuilder.Infrastructure;
 
 public interface IConfigLoader
 {
-    ValueTask<ConfigNode> LoadAsync();
+	string ConfigType { get; }
+    ValueTask<ConfigNode> LoadAsync(Uri configUri);
+    
 }

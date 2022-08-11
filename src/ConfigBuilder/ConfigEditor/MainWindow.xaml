@@ -7,47 +7,31 @@
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-  <DockPanel>
-          <ToolBarTray IsLocked="True" DockPanel.Dock="Top">
-              <ToolBar Band="1" BandIndex="1">
-                  <Button x:Name="DeleteAttribute" Command="local:MainWindow.OpenConfigFileCommand" Focusable="False" 
-                          ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self},Path=Command}"
-                          ToolTipService.ShowOnDisabled="True">
-                      <Image Source="open.png" Width="16" RenderOptions.BitmapScalingMode="NearestNeighbor">
-                          <Image.Style>
-                              <Style TargetType="Image">
-                                  <Setter Property="Width" Value="16"/>
-                                  <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
-                                  <Style.Triggers>
-                                      <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ButtonBase,AncestorLevel=1},Path=IsEnabled}" Value="False">
-                                          <Setter Property="Opacity" Value="0.25"></Setter>
-                                      </DataTrigger>
-                                  </Style.Triggers>
-                              </Style>
-                          </Image.Style>
-                      </Image>
-                  </Button>                  
-              </ToolBar>
-          </ToolBarTray>
+    <DockPanel>
 
-      <DockPanel Dock="Left">
-        <DockPanel>
-<TreeView Name="TreeView" ItemsSource="{Binding ChildNodes}">
+
+
+
+<TreeView DockPanel.Dock = "Left" Name="TreeView" ItemsSource="{Binding ChildNodes}" Width="200">
     <TreeView.ItemTemplate>
         <HierarchicalDataTemplate ItemsSource="{Binding ChildNodes }" DataType="{x:Type local:NodeViewModel}" >
             <TextBlock Text="{Binding LocalName}" />
         </HierarchicalDataTemplate>
     </TreeView.ItemTemplate>
 </TreeView>
+        
+        <DockPanel DataContext="{Binding ElementName= TreeView, Path= SelectedItem }">
+            <Grid Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding LocalName}" />
+               
+            </Grid>
         </DockPanel>
+
+
+
     </DockPanel>
-    <DockPanel Dock="Right">
-        <!-- <TextBlock Margin="10,0,0,0"  -->
-        <!--            Text="{Binding ElementName=TreeView,  -->
-        <!--                   Path=SelectedValuePath}" -->
-        <!--            Foreground="Blue"/> -->
-    </DockPanel>
-</DockPanel>
-    </Grid>
 </Window>

@@ -6,7 +6,7 @@ public class LoadConfigHandler
 {
     private readonly IConfigLoader _configLoader;
 
-    public LoadConfigHandler(IConfigLoader configLoader)
+    public LoadConfigHandler(GenericConfigLoader configLoader)
     {
         _configLoader = configLoader;
     }
