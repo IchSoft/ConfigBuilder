@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConfigBuilder.Entities\ConfigBuilder.Entities.csproj" />
+      <ProjectReference Include="..\ConfigBuilder.Utilities\ConfigBuilder.Utilities.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,14 +1,16 @@
 ﻿using ConfigBuilder.Infrastructure;
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace ConfigBuilder.UseCases.LoadConfig;
 
 public class LoadConfigHandler
 {
-    private readonly IConfigLoader _configLoader;
+    private readonly ConfigSessionsRepository _repository;
 
-    public LoadConfigHandler(GenericConfigLoader configLoader)
+    public LoadConfigHandler(ConfigSessionsRepository repository)
     {
-        _configLoader = configLoader;
+	    _repository = repository;
     }
     
     public async ValueTask<ConfigLoadedDto> HandleAsync(LoadConfigDto inputDto)

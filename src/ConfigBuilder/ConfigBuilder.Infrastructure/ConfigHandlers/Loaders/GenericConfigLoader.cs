@@ -12,7 +12,7 @@ public class GenericConfigLoader : IConfigLoader
 		_configLoaderFactory = configLoaderFactory;
 	}
 	
-	public async ValueTask<ConfigNode> LoadAsync(Uri configUri)
+	public async ValueTask<Stream> LoadAsync(Uri configUri)
 	{
 		return await _configLoaderFactory.Create(configUri.Scheme).LoadAsync(configUri);
 	}

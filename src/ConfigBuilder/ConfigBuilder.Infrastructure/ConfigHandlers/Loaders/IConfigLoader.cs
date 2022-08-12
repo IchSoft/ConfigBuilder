@@ -1,10 +1,8 @@
-﻿using ConfigBuilder.Entities;
-
-namespace ConfigBuilder.Infrastructure;
+﻿namespace ConfigBuilder.Infrastructure;
 
 public interface IConfigLoader
 {
 	string ConfigType { get; }
-    ValueTask<ConfigNode> LoadAsync(Uri configUri);
+	ValueTask<Stream> LoadAsync(Uri configUri);
     
 }

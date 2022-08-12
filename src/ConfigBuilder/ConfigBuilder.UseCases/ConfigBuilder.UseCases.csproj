@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\ConfigBuilder.Entities\ConfigBuilder.Entities.csproj" />
       <ProjectReference Include="..\ConfigBuilder.Infrastructure\ConfigBuilder.Infrastructure.csproj" />
+      <ProjectReference Include="..\Mediator.Abstractions\Mediator.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>
